@@ -2,10 +2,17 @@ const buttonShowForm = document.getElementById('button-show-form');
 const buttonClearForm = document.getElementById('button-clear-form');
 const form = document.getElementById('form');
 const blackBackground = document.getElementById('background');
+const bars = document.getElementById('bars');
+const navbars = document.getElementById('navbars');
 
 buttonShowForm.addEventListener('click', showForm);
 buttonClearForm.addEventListener('click', clearForm);
 blackBackground.addEventListener('click', clearFormBg);
+bars.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.target.classList.toggle('change');
+    navbars.classList.toggle('change');
+});
 
 function showForm(e) {
     e.preventDefault();
@@ -16,11 +23,11 @@ function showForm(e) {
 }
 function clearForm(e) {
     e.preventDefault();
-    buttonShowForm.classList.remove('d-none');
     this.parentElement.nextElementSibling.nextElementSibling.classList.remove(
         'd-none'
     );
     form.classList.add('d-none');
+    buttonShowForm.classList.remove('d-none');
     blackBackground.classList.add('d-none');
 }
 function clearFormBg() {
