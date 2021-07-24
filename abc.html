@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                font-size: 16px;
+                font-family: sans-serif;
+            }
+
+            body {
+                background-color: #313131;
+                color: #fff;
+                padding: 1rem;
+            }
+
+            .accordion {
+                width: 50%;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .accordion-item {
+                background-color: transparent;
+            }
+            .accordion-item__button {
+                border: 0;
+                display: block;
+                background: #242424;
+                width: 100%;
+                color: #fff;
+                text-align: left;
+                font-size: 16px;
+                transition: all 0.2s ease-in-out;
+                padding: 1rem;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+            .accordion-item__button:after {
+                content: '+';
+                float: right;
+                right: 0;
+            }
+            .accordion-item__button.active,
+            .accordion-item__button:hover {
+                background-color: #474747;
+            }
+            .accordion-item__button.active {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            .accordion-item__button.active:after {
+                content: '-';
+            }
+            .accordion-item__content {
+                overflow: hidden;
+                max-height: 0;
+                transition: all 0.4s ease-in-out;
+                background-color: #242424;
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+            .accordion-item__content.active {
+                display: block;
+            }
+            .accordion-item__content p {
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>An accordion</h1>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-item__button">accordion button</button>
+                <div class="accordion-item__content">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quo amet ullam, nemo exercitationem accusantium
+                        laborum impedit illum, velit quaerat doloribus maxime!
+                        Maiores velit aperiam debitis. Fugiat saepe natus sed
+                        totam?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let accordionButtons = document.getElementsByClassName(
+                'accordion-item__button'
+            );
+
+            for (let i = 0; i < accordionButtons.length; i++) {
+                accordionButtons[i].addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    let accordionContent = this.nextElementSibling;
+
+                    if (accordionContent.style.maxHeight) {
+                        accordionContent.style.maxHeight = null;
+                    } else {
+                        accordionContent.style.maxHeight =
+                            accordionContent.scrollHeight + 'px';
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

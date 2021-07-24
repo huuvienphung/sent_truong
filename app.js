@@ -4,6 +4,7 @@ const form = document.getElementById('form');
 const blackBackground = document.getElementById('background');
 const bars = document.getElementById('bars');
 const navbars = document.getElementById('navbars');
+const buttonToggle = document.querySelectorAll('.button-accordian');
 
 buttonShowForm.addEventListener('click', showForm);
 buttonClearForm.addEventListener('click', clearForm);
@@ -38,3 +39,17 @@ function clearFormBg() {
         'd-none'
     );
 }
+
+buttonToggle.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.target.classList.toggle('active');
+        let accordionContent = e.target.nextElementSibling;
+
+        if (accordionContent.style.maxHeight) {
+            accordionContent.style.maxHeight = null;
+        } else {
+            accordionContent.style.maxHeight =
+                accordionContent.scrollHeight + 'px';
+        }
+    });
+});
