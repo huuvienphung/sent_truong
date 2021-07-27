@@ -2,6 +2,7 @@
     --bg-yellow: rgb(255, 207, 0);
     --bg-white: #fff;
     --color-black: #000;
+    --color-violet: rgb(71, 41, 111);
 }
 
 body {
@@ -12,6 +13,10 @@ body {
 a {
     display: inline-block;
     text-decoration: none;
+}
+ul {
+    padding: 0;
+    margin: 0;
 }
 li {
     list-style: none;
@@ -144,6 +149,7 @@ input:focus {
     top: 55px;
     width: 300px;
     transform: translateX(-300px);
+    z-index: 199;
     height: calc(100vh - 55px);
     background: var(--bg-white);
     border-right: 1px solid rgb(224, 224, 224);
@@ -337,7 +343,17 @@ input:focus {
         padding: 0 30px;
         background-color: var(--bg-yellow);
     }
+    .header__bottom ul li {
+        transition: background 0.2s ease;
+    }
+    .header__bottom ul li:hover {
+        background: var(--color-violet);
+    }
+    .header__bottom ul li:hover a {
+        color: var(--bg-white);
+    }
     .header__bottom ul li a {
+        transition: color 0.2s;
         color: var(--color-black);
     }
     /* footer */
